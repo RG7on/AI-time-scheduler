@@ -1,0 +1,72 @@
+##(prompt 1)##
+
+do this time table folow  this :
+Hard Constraints
+Hard constraints are conditions that must be satisfied for a timetable to be considered feasible. In this code, the hard constraints are:
+
+No Teacher Conflicts:
+
+
+check all of them, one by one
+
+A teacher cannot teach more than one section at the same time.
+Implementation: Ensured by adding constraints that the time slots for sections taught by the same teacher must be different.
+No Student Conflicts:
+
+A student cannot be in more than one section at the same time.
+Implementation: Ensured by adding constraints that the time slots for sections in which a student is enrolled must be different.
+No Room Conflicts:
+
+A room cannot host more than one section at the same time.
+Implementation: Modeled using combined variables for time slot and room, ensuring that no two sections share both the same room and time slot.
+Teacher Unavailable Slots:
+
+Teachers may have specific time slots when they are unavailable.
+Implementation: For each section, constraints are added to prevent scheduling in a teacher's unavailable slots.
+Restricted Time Slots:
+
+Certain time slots are off-limits for scheduling courses (no courses on Tuesday from 10:00 to 12:00).
+Implementation: Constraints are added to prevent sections from being scheduled during these restricted slots.
+Maximum Section Size:
+
+Each section cannot have more than a specified maximum number of students (30 students).
+Implementation: Students are assigned to sections accordingly, and the number of sections per course is calculated based on enrollment and maximum section size.
+Resource Capacity Constraints:
+
+The total number of sections must not exceed the total scheduling capacity (rooms multiplied by time slots).
+Implementation: A preliminary feasibility check compares the total sections to the maximum capacity.
+Teacher Capacity Constraints:
+
+A teacher cannot be assigned more sections than they can teach (one per time slot).
+Implementation: A teacher capacity check ensures no teacher is overloaded beyond their available time slots.
+
+
+
+
+###if all Hard Constraints are satisfied we write the soft Constraints prompt###
+
+###(prompt 2)###
+do this time table follow Soft Constraints :
+
+Soft constraints are preferences or goals that are desirable but not strictly necessary. In the last version of the code provided, the focus is on satisfying hard constraints to achieve a feasible timetable. Soft constraints are not explicitly implemented in this version.
+
+However, in earlier versions or with further development, soft constraints could include:
+
+Minimizing Gaps in Teachers' Schedules:
+Prefer schedules where teachers have consecutive classes to reduce idle time.
+Distributing Courses Evenly Across the Week:
+Avoid clustering all classes for a course or student on a single day.
+Student Preferences:
+Accommodate students' preferred time slots or minimize their schedule gaps.
+Room Utilization Efficiency:
+Optimize the usage of rooms based on capacity and suitability.
+
+
+
+
+
+
+Notes and observations:
+how will we know whather the time table we got is the best option?
+usually lecturers workload is maximum 18 hours a week, we got 42 hours per week
+##we need more realistic data to test with
