@@ -108,7 +108,7 @@ else:
 teacher_max_sections = len(time_slots)  # Assuming full availability
 infeasible_teachers = []
 
-max_sessions_per_day = 2  # Maximum sessions per day for a teacher
+max_sessions_per_day = 5  # Maximum sessions per day for a teacher
 
 for teacher in teachers:
     teacher_sections = [sec for sec, t in section_teacher.items() if t == teacher]
